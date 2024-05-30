@@ -22,9 +22,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 
-public class TongHopJPanel extends javax.swing.JPanel {
+public class bai1 extends javax.swing.JPanel {
 
-    public TongHopJPanel() {
+    public bai1() {
         initComponents();
         setTable();
     }
