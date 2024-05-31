@@ -761,7 +761,7 @@ public class LichTrinhJPanel extends javax.swing.JPanel implements Serializable 
         if (chua.isSelected()) {
             trangthai = "Chưa bắt đầu ";
         } else if (dang.isSelected()) {
-            trangthai = "Đang diênc ra ";
+            trangthai = "Đang diễn ra ";
         } else if (kt.isSelected()){
             trangthai= " Kết thúc";           
         }

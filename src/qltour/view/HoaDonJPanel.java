@@ -37,8 +37,9 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
     public HoaDonJPanel() {
         
         initComponents();
-        showDataComboBox11();
         showDataComboBox1();
+        showDataComboBox11();
+        
         chua.setSelected(true);
         SetTable1();
     }
@@ -58,12 +59,11 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
         
        LT= o.loadData(LT, "dsLT.dat");
        HD= o.loadData(HD, "dsHD.dat");
-        for (LichTrinh ks :LT ) {
-            MaHD_jComboBox1.addItem(ks.getTour());
+        for (HopDong ks :HD ) {
+            suaHDcombo.addItem(ks.getID_HopDong());
         }
-        for (HopDong tt : HD) {
-            TourLT_jComboBox2.addItem(tt.getID_HopDong());
-            
+        for (LichTrinh tt : LT) {
+            Tour_Box2.addItem(tt.getTour());
         } 
     }
     private void SetTable1(){
@@ -125,21 +125,20 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        id_moi = new javax.swing.JTextField();
+        maMOI = new javax.swing.JTextField();
         nguoitao = new javax.swing.JTextField();
         tenHDV = new javax.swing.JTextField();
         c = new javax.swing.JRadioButton();
         d = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
-        id_cu = new javax.swing.JTextField();
+        maCU = new javax.swing.JTextField();
         capnhat = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         ngaybdd = new com.toedter.calendar.JDateChooser();
-        KH_jComboBox1 = new javax.swing.JComboBox<>();
-        Tour_jComboBox2 = new javax.swing.JComboBox<>();
+        suaHDcombo = new javax.swing.JComboBox<>();
+        Tour_Box2 = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
-        jDialog4 = new javax.swing.JDialog();
         HHD_jOptionPane1 = new javax.swing.JOptionPane();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
@@ -340,7 +339,7 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
 
         jLabel13.setBackground(new java.awt.Color(255, 153, 153));
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel13.setText("Sửa Lịch Trình");
+        jLabel13.setText("Sửa Hoá Đơn");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel14.setText("Ngày");
@@ -354,9 +353,9 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel18.setText("Trạng Thái");
 
-        id_moi.addActionListener(new java.awt.event.ActionListener() {
+        maMOI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                id_moiActionPerformed(evt);
+                maMOIActionPerformed(evt);
             }
         });
 
@@ -383,9 +382,9 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Mã Hóa Đơn Cũ");
 
-        id_cu.addActionListener(new java.awt.event.ActionListener() {
+        maCU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                id_cuActionPerformed(evt);
+                maCUActionPerformed(evt);
             }
         });
 
@@ -437,15 +436,15 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(94, 94, 94)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(id_moi, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(id_cu, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(KH_jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(maMOI, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(maCU, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(suaHDcombo, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(ngaybdd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(Tour_jComboBox2, 0, 333, Short.MAX_VALUE)
+                                                .addComponent(Tour_Box2, 0, 333, Short.MAX_VALUE)
                                                 .addComponent(nguoitao)
                                                 .addComponent(tenHDV)
                                                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -468,7 +467,7 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
                                 .addGap(32, 32, 32)
                                 .addComponent(jLabel13)
                                 .addGap(40, 40, 40)
-                                .addComponent(id_cu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(maCU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(112, 112, 112)
@@ -477,7 +476,7 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
                         .addComponent(jLabel12)
                         .addGap(11, 11, 11))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(id_moi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(maMOI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addComponent(jLabel19)
                 .addGap(15, 15, 15)
@@ -485,11 +484,11 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel22)
-                            .addComponent(KH_jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(suaHDcombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
-                            .addComponent(Tour_jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Tour_Box2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
@@ -526,17 +525,6 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-        );
-
-        javax.swing.GroupLayout jDialog4Layout = new javax.swing.GroupLayout(jDialog4.getContentPane());
-        jDialog4.getContentPane().setLayout(jDialog4Layout);
-        jDialog4Layout.setHorizontalGroup(
-            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jDialog4Layout.setVerticalGroup(
-            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setBackground(new java.awt.Color(204, 204, 255));
@@ -772,9 +760,9 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
         // TODO add your handling code here:
     }//GEN-LAST:event_MaHD_jComboBox1ActionPerformed
 
-    private void id_moiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_moiActionPerformed
+    private void maMOIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maMOIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_id_moiActionPerformed
+    }//GEN-LAST:event_maMOIActionPerformed
 
     private void nguoitaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nguoitaoActionPerformed
         // TODO add your handling code here:
@@ -784,9 +772,9 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
         // TODO add your handling code here:
     }//GEN-LAST:event_cActionPerformed
 
-    private void id_cuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_cuActionPerformed
+    private void maCUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maCUActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_id_cuActionPerformed
+    }//GEN-LAST:event_maCUActionPerformed
 
     private void capnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capnhatActionPerformed
         // TODO add your handling code here:
@@ -796,11 +784,11 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
         dateformat = new SimpleDateFormat("MM/dd/yyyy");
         Date date = ngaybdd.getDate();
         
-        String aa =  (String) KH_jComboBox1.getSelectedItem();
-        String ba =  (String) Tour_jComboBox2.getSelectedItem();
+        String aa =  (String) suaHDcombo.getSelectedItem();
+        String ba =  (String) Tour_Box2.getSelectedItem();
         String Nt = nguoitao.getText();
-        String ID = id_cu.getText();
-        String IDnew = id_moi.getText();
+        String ID = maCU.getText();
+        String IDnew = maMOI.getText();
         
         double Giaaa= 0 ;
          boolean priceinput = false;
@@ -826,7 +814,7 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
            HHD_jOptionPane1.showMessageDialog(add_HHD, "Vui lòng chọn trạng thai ", "Thông Báo", HHD_jOptionPane1.ERROR_MESSAGE);
         }
         check_Loi n = new check_Loi();
-        int checkID = n.erros_same_IDHD1_v2(listHD, ID, IDnew);
+        int checkID = n.erros_same_IDHD1_v2(listHD, IDnew, ID);
         if (IDnew.isEmpty()) {
             HHD_jOptionPane1.showMessageDialog(sua_HHD, "ID không được rỗng   ", "Thông Báo", HHD_jOptionPane1.ERROR_MESSAGE);
 
@@ -847,8 +835,7 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
                     hd.setID_HoaDon(IDnew);
                     hd.setID_HopDong(aa);
                     hd.setID_LT(ba);
-                    hd.setNgay(dateformat.format(date));
-                    
+                    hd.setNgay(dateformat.format(date));                   
                     hd.setNgTao(Nt);
                     hd.setGia(Giaaa);
                     hd.setTrangThai(trangthai);
@@ -928,13 +915,12 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
     private javax.swing.JTextField Gia;
     private javax.swing.JOptionPane HHD_jOptionPane1;
     private javax.swing.JLabel KHACHH;
-    private javax.swing.JComboBox<String> KH_jComboBox1;
     private javax.swing.JComboBox<String> MaHD_jComboBox1;
     private javax.swing.JTable QLHDD_jTable;
     private javax.swing.JTextField Search_jTextField;
     private javax.swing.JComboBox<String> Sortby;
     private javax.swing.JComboBox<String> TourLT_jComboBox2;
-    private javax.swing.JComboBox<String> Tour_jComboBox2;
+    private javax.swing.JComboBox<String> Tour_Box2;
     private javax.swing.JButton add;
     private javax.swing.JDialog add_HHD;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -943,10 +929,7 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
     private javax.swing.JRadioButton chua;
     private javax.swing.JRadioButton d;
     private javax.swing.JRadioButton dang;
-    private javax.swing.JTextField id_cu;
     private javax.swing.JTextField id_hoadon;
-    private javax.swing.JTextField id_moi;
-    private javax.swing.JDialog jDialog4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -970,11 +953,14 @@ public class HoaDonJPanel extends javax.swing.JPanel  implements Serializable {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField maCU;
+    private javax.swing.JTextField maMOI;
     private com.toedter.calendar.JDateChooser ngay_tao;
     private com.toedter.calendar.JDateChooser ngaybdd;
     private javax.swing.JTextField ngtao_jTextField;
     private javax.swing.JTextField nguoitao;
     private javax.swing.JButton removeee;
+    private javax.swing.JComboBox<String> suaHDcombo;
     private javax.swing.JDialog sua_HHD;
     private javax.swing.JTextField tenHDV;
     private javax.swing.JButton them;
