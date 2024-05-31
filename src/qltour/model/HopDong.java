@@ -1,13 +1,30 @@
 
 package qltour.model;
 
-public class HopDong {
-    private String ID_HopDong;
-    private KhachHang kh;
-    private LichTrinh lt;
-    private String trangThai;
+import java.io.Serializable;
 
-    public String getID_HopDong() {
+public class HopDong implements Serializable {
+    private String ID_HopDong;
+    private String Makh;
+    private String NgayLap;
+    private String trangThai;
+    private String MaTour;
+    
+    
+    
+
+    public HopDong() {
+	}
+
+	public HopDong(String iD_HopDong, String kh, String ngayLap, String trangThai, String maTour) {
+		ID_HopDong = iD_HopDong;
+		this.Makh = kh;
+		NgayLap = ngayLap;
+		this.trangThai = trangThai;
+		MaTour = maTour;
+	}
+
+	public String getID_HopDong() {
         return ID_HopDong;
     }
 
@@ -15,20 +32,12 @@ public class HopDong {
         this.ID_HopDong = ID_HopDong;
     }
 
-    public KhachHang getKh() {
-        return kh;
+    public String getMaKh() {
+        return Makh;
     }
 
-    public void setKh(KhachHang kh) {
-        this.kh = kh;
-    }
-
-    public LichTrinh getLt() {
-        return lt;
-    }
-
-    public void setLt(LichTrinh lt) {
-        this.lt = lt;
+    public void setMaKh(String kh) {
+        this.Makh = kh;
     }
 
     public String getTrangThai() {
@@ -38,5 +47,24 @@ public class HopDong {
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
     }
+
+	public String getNgayLap() {
+		return NgayLap;
+	}
+
+	public String getMaTour() {
+		return MaTour;
+	}
+
+	public void setNgayLap(String ngayLap) {
+		NgayLap = ngayLap;
+	}
+
+	public void setMaTour(String maTour) {
+		MaTour = maTour;
+	}
     
+	
+	
+	
 }
