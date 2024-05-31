@@ -64,4 +64,7 @@ public class HopDong implements Serializable {
 		MaTour = maTour;
 	}
     
+	
+	
+	
 }
