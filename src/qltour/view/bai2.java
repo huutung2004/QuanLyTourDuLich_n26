@@ -58,7 +58,7 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import java.awt.Window;
 
-public class HopDongJPanel extends javax.swing.JPanel {
+public class bai2 extends javax.swing.JPanel {
 	private JTable table;
 	static IO o = new IO();
 	ArrayList<HopDong> listHD = new ArrayList<HopDong>();
@@ -88,7 +88,7 @@ public class HopDongJPanel extends javax.swing.JPanel {
 	 */
 	private JDialog dialog = new JDialog();
 
-	public HopDongJPanel() {
+	public bai2() {
 
 		initComponents();
 		setTable();
@@ -319,6 +319,7 @@ public class HopDongJPanel extends javax.swing.JPanel {
 		});
     	btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+
                 listHD = o.loadData(listHD, "dsHD.dat");
                 String MaHD= tf_MHD.getText();
                 String  MaKH=(String) comboBox_MKH.getSelectedItem()  ;
