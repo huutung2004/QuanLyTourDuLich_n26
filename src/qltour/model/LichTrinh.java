@@ -1,17 +1,29 @@
 
 package qltour.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class LichTrinh {
+public class LichTrinh implements Serializable {
     private String ID_lichTrinh;
-    private KhachHang kh;
-    private Tour tour;
-    private Date date_start;
-    private Date date_end;
-    private int soKhach;
+    private String kh;
+    private String tour;
+    private String date_start;
+    private String date_end;
+    private String soKhach;
     private String HDV;
     private String trangThai;
+
+    public LichTrinh(String ID_lichTrinh, String kh, String tour, String date_start, String date_end, String soKhach, String HDV, String trangThai) {
+        this.ID_lichTrinh = ID_lichTrinh;
+        this.kh = kh;
+        this.tour = tour;
+        this.date_start = date_start;
+        this.date_end = date_end;
+        this.soKhach = soKhach;
+        this.HDV = HDV;
+        this.trangThai = trangThai;
+    }
 
     public String getID_lichTrinh() {
         return ID_lichTrinh;
@@ -21,43 +33,43 @@ public class LichTrinh {
         this.ID_lichTrinh = ID_lichTrinh;
     }
 
-    public KhachHang getKh() {
+    public String getKh() {
         return kh;
     }
 
-    public void setKh(KhachHang kh) {
+    public void setKh(String kh) {
         this.kh = kh;
     }
 
-    public Tour getTour() {
+    public String getTour() {
         return tour;
     }
 
-    public void setTour(Tour tour) {
+    public void setTour(String tour) {
         this.tour = tour;
     }
 
-    public Date getDate_start() {
+    public String getDate_start() {
         return date_start;
     }
 
-    public void setDate_start(Date date_start) {
+    public void setDate_start(String date_start) {
         this.date_start = date_start;
     }
 
-    public Date getDate_end() {
+    public String getDate_end() {
         return date_end;
     }
 
-    public void setDate_end(Date date_end) {
+    public void setDate_end(String date_end) {
         this.date_end = date_end;
     }
 
-    public int getSoKhach() {
+    public String getSoKhach() {
         return soKhach;
     }
 
-    public void setSoKhach(int soKhach) {
+    public void setSoKhach(String soKhach) {
         this.soKhach = soKhach;
     }
 
@@ -76,6 +88,9 @@ public class LichTrinh {
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
     }
-    
+
     
 }
+
+    
+    
