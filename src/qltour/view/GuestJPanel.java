@@ -38,7 +38,7 @@ public class GuestJPanel extends javax.swing.JPanel {
         int i = 0;
         for (KhachHang khachHang : listKh) {
             i++;
-            defaultTableModel.addRow(new Object[]{i++, khachHang.getID_client(), khachHang.getName_client(), khachHang.getPhone(), khachHang.getCMND(), khachHang.getHome_town(), khachHang.getSex(), khachHang.getEmail(), khachHang.getNotes()});
+            defaultTableModel.addRow(new Object[]{i, khachHang.getID_client(), khachHang.getName_client(), khachHang.getPhone(), khachHang.getCMND(), khachHang.getHome_town(), khachHang.getSex(), khachHang.getEmail(), khachHang.getNotes()});
         }
 
     }
